@@ -30,7 +30,7 @@ def generate_embeddings():
 # Streamlit app
 def main():
     st.title("Safestreet-sdXai")
-    openai_api_key = "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"
+    openai_api_key = "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"
     os.environ['OPENAI_API_KEY'] = openai_api_key
     embeddings = OpenAIEmbeddings()
     #db1=FAISS.load_local('embed.db',embeddings)
@@ -39,7 +39,7 @@ def main():
     qa = RetrievalQA.from_chain_type(llm=OpenAI(), chain_type="stuff", retriever=retriever)
     
     # Input field for the query
-    query = st.text_input("What's on your mind?")
+    query = st.text_input("Safestreet can answer your questions regarding the safety of a neighbourhood. Ask Safestreet a question: ")
     
     # Run the query and display the result
     if st.button("Ask Safestreet"):
